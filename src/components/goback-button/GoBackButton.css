@@ -1,0 +1,20 @@
+.goback-button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    background: none;
+    border: 1px solid transparent;
+}
+
+.goback-button:hover {
+    border: 1px solid black;
+    box-shadow: 0 0 8px 2px #0000001a;
+    border-radius: 8px;
+}
+
+.arrow-left {
+    margin-right: 8px;
+}

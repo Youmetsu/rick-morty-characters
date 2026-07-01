@@ -1,0 +1,5 @@
+.character-info-page {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}

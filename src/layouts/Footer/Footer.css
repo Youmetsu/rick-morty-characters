@@ -1,0 +1,7 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    box-shadow: -2px 0 8px 2px #0000001a;
+}
