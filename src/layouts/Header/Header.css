@@ -1,0 +1,46 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    box-shadow: -2px 0 8px 2px #0000001a;
+    padding: 0 210px;
+}
+
+.header-logo {
+}
+
+.settings-block {
+    display: flex;
+}
+
+.theme-icon {
+    color: #98989a;
+    border: 1px solid #393939;
+    border-radius: 8px;
+    padding: 7px;
+    margin-right: 15px;
+}
+
+.language-mode {
+    width: 41px;
+    height: 41px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #393939;
+    border: 1px solid #393939;
+    border-radius: 8px;
+    padding: 7px;
+}
+
+.settings-icon:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    box-shadow: 0 0 8px 2px #0000001a;
+    color: black;
+
+    font-size: 18px;
+}
