@@ -8,6 +8,7 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 import react from 'eslint-plugin-react'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 import importX from 'eslint-plugin-import-x'
+import simpleImportSort from 'eslint-plugin-simple-import-sort'
 
 export default defineConfig([
     globalIgnores(['dist']),
@@ -24,6 +25,9 @@ export default defineConfig([
             importX.flatConfigs.typescript,
             eslintConfigPrettier,
         ],
+        plugins: {
+            'simple-import-sort': simpleImportSort,
+        },
         languageOptions: {
             globals: globals.browser,
         },
@@ -37,16 +41,35 @@ export default defineConfig([
         },
         rules: {
             'react/react-in-jsx-scope': 'off',
-            'import-x/order': [
-                'warn',
-                {
-                    groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-                    'newlines-between': 'never',
-                },
-            ],
+            'import-x/order': 'off',
             'import-x/no-unresolved': 'error',
             'import-x/no-cycle': 'warn',
             'import-x/no-duplicates': 'warn',
+
+            'simple-import-sort/imports': [
+                'warn',
+                {
+                    groups: [
+                        [
+                            // React packages first.
+                            '^react(/.*)?$',
+                            '^react-dom(/.*)?$',
+                            '^react-router(/.*)?$',
+                            // Packages: letter, digit, underscore, or @scope.
+                            '^@?\\w',
+                            // Side effect imports (non-CSS): import 'reflect-metadata'
+                            '^\\u0000(?!.*\\.s?css$)',
+                            // Parent imports. Put `..` last.
+                            '^\\.\\.(?!/?$)', '^\\.\\./?$',
+                            // Other relative imports. Put same-folder imports and `.` last.
+                            '^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$',
+                            // Style imports last: import './foo.css', import styles from './foo.module.scss'
+                            '^.+\\.s?css$',
+                        ],
+                    ],
+                },
+            ],
+            'simple-import-sort/exports': 'warn',
         },
     },
 ])
