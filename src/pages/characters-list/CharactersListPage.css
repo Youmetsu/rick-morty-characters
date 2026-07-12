@@ -4,3 +4,12 @@
     align-items: center;
     height: 100%;
 }
+
+.filters-block {
+    display: flex;
+    margin-top: 16px;
+}
+
+.filter-element {
+    margin-right: 28px;
+}

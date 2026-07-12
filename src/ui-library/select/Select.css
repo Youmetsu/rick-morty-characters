@@ -1,0 +1,108 @@
+.select-container {
+    border-radius: 6px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.select_large {
+    width: 240px;
+    height: 55px;
+    padding-left: 14px;
+}
+
+.select_small {
+    width: 95px;
+    height: 20px;
+    padding-left: 5px;
+}
+
+.select-button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    margin-bottom: 8px;
+
+    background: var(--color-bg-primary);
+    cursor: pointer;
+}
+
+.select-button_text {
+    display: flex;
+    align-items: center;
+}
+
+.select-button:hover {
+    box-shadow: 0 0 8px 2px var(--color-shadow);
+}
+
+.select-button:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+.select-options {
+    position: relative;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    margin-top: 8px;
+    padding: 0;
+
+    background: var(--color-bg-primary);
+}
+
+.select-options_large .select-option {
+    padding-left: 14px;
+}
+
+.select-options_small .select-option {
+    padding-left: 5px;
+}
+
+.select-option {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.select-option[aria-selected='true'] {
+    border-radius: 6px;
+    background-color: var(--color-bg-selected);
+}
+
+.select-option:hover,
+.select-option:focus {
+    border-radius: 6px;
+    text-shadow: 0.3px 0 0 currentColor;
+    background-color: var(--color-bg-hover);
+}
+
+.select-option:focus {
+    outline: 2px solid #1a73e8;
+    outline-offset: -2px;
+}
+
+.select-options_keyboard-nav .select-option:hover:not([aria-selected='true']) {
+    text-shadow: none;
+    background-color: transparent;
+}
+
+.select-option[aria-selected='true']:focus-visible {
+    background-color: var(--color-bg-selected-focused);
+}
+
+.select-arrow-icon_large {
+    margin-right: 22px;
+}
+
+.select-arrow-icon_small {
+    margin-right: 10px;
+    transform: scale(0.8);
+}
+
+.select-arrow-icon_closed {
+    transform: rotate(180deg);
+}

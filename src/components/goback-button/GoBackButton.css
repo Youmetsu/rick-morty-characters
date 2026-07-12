@@ -10,8 +10,8 @@
 }
 
 .goback-button:hover {
-    border: 1px solid black;
-    box-shadow: 0 0 8px 2px #0000001a;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 0 8px 2px var(--color-shadow);
     border-radius: 8px;
 }
 

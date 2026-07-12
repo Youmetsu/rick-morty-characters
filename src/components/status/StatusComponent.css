@@ -1,0 +1,18 @@
+.status {
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    margin-left: 5px;
+}
+
+.status-alive {
+    background-color: var(--color-status-alive);
+}
+
+.status-dead {
+    background-color: var(--color-status-dead);
+}
+
+.status-unknown {
+    background-color: var(--color-status-unknown);
+}
