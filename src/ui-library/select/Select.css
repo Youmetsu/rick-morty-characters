@@ -35,6 +35,20 @@
     align-items: center;
 }
 
+.select-button_text_large {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0%;
+}
+
+.select-button_text_small {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.25px;
+}
+
 .select-button:hover {
     box-shadow: 0 0 8px 2px var(--color-shadow);
 }
@@ -66,6 +80,20 @@
     display: flex;
     align-items: center;
     margin: 10px 0;
+}
+
+.select-option_large {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0%;
+}
+
+.select-option_small {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.25px;
 }
 
 .select-option[aria-selected='true'] {
