@@ -1,0 +1,42 @@
+.char-card-edit__info-field-block {
+    display: flex;
+    flex-direction: column;
+    margin: 7px 0;
+}
+
+.char-card-edit__status {
+    position: relative;
+    right: 6px;
+}
+
+.char-card-edit__edit-button,
+.char-card-edit__favorite-button {
+    position: absolute;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-bg-hover);
+    cursor: pointer;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+}
+
+.char-card-edit__edit-button {
+    top: 8px;
+}
+
+.char-card-edit__favorite-button {
+    top: 8px;
+    right: 44px;
+}
+
+.char-card-edit:hover .char-card-edit__edit-button,
+.char-card-edit:hover .char-card-edit__favorite-button {
+    pointer-events: auto;
+}

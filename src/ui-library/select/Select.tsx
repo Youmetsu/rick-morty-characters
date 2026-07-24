@@ -124,9 +124,10 @@ export function Select<T extends ReactNode>({
                     onKeyDown={handleButtonKeyDown}
                 >
                     <div
-                        className={classNames('select-button_text', {
+                        className={classNames('select-button_text ', {
                             'select-button_text_large': size === 'large',
                             'select-button_text_small': size === 'small',
+                            'text-small': size === 'small',
                         })}
                     >
                         {value?.value ?? placeholder}
@@ -159,8 +160,8 @@ export function Select<T extends ReactNode>({
                                 }}
                                 className={classNames('select-option', {
                                     'select-option__selected': option.id === value?.id,
-                                    'select-option_large': size === 'large',
-                                    'select-option_small': size === 'small',
+                                    'text-select-large': size === 'large',
+                                    'text-small': size === 'small',
                                 })}
                                 role='option'
                                 aria-selected={option.id === value?.id}

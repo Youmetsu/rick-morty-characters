@@ -1,0 +1,41 @@
+.char-card-status-block {
+    display: flex;
+    align-items: center;
+}
+
+.char-card-status-indicator {
+    margin-left: 4px;
+}
+
+.char-card-view__edit-button,
+.char-card-view__favorite-button {
+    position: absolute;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-bg-hover);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+}
+
+.char-card-view__edit-button {
+    top: 8px;
+}
+
+.char-card-view__favorite-button {
+    bottom: 8px;
+}
+
+.char-card-view:hover .char-card-view__edit-button,
+.char-card-view:hover .char-card-view__favorite-button {
+    opacity: 1;
+    pointer-events: auto;
+}

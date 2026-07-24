@@ -10,7 +10,9 @@ interface InputProps {
     variant?: 'underlined' | 'bordered'
     placeholder?: string
     renderDecoration?: () => ReactElement
+    /* только для input */
     className?: string
+    classNameContainer?: string
     onChange?: (value: string) => void
     dataTestIds?: {
         label: string
@@ -27,6 +29,7 @@ export function Input({
     placeholder,
     renderDecoration,
     className,
+    classNameContainer,
     onChange,
     dataTestIds,
 }: InputProps) {
@@ -43,7 +46,7 @@ export function Input({
     }
 
     return (
-        <div className={classNames('input', className)}>
+        <div className={classNames('input', classNameContainer)}>
             {label && (
                 <label
                     htmlFor={inputId}
@@ -68,8 +71,9 @@ export function Input({
                     placeholder={placeholder}
                     value={value || ''}
                     onChange={handleChange}
-                    className={classNames('input__field', {
+                    className={classNames('input__field', className, {
                         'input__field--underlined': variant === 'underlined',
+                        'text-bold-large': variant === 'underlined',
                         'input__field--bordered': variant === 'bordered',
                     })}
                     data-testid={dataTestIds?.input}

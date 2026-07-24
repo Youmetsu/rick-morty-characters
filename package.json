@@ -10,10 +10,13 @@
         "preview": "vite preview",
         "prepare": "husky",
         "prettier": "npx prettier . --write",
+        "stylelint": "stylelint \"src/**/*.css\"",
+        "stylelint:fix": "stylelint \"src/**/*.css\" --fix",
         "test": "vitest run",
         "test:watch": "vitest"
     },
     "dependencies": {
+        "@fontsource/roboto": "^5.2.10",
         "classnames": "^2.5.1",
         "focus-trap-react": "^12.0.3",
         "react": "^19.2.6",
@@ -44,6 +47,8 @@
         "jsdom": "^29.1.1",
         "lint-staged": "^16.4.0",
         "prettier": "3.8.4",
+        "stylelint": "^17.14.1",
+        "stylelint-config-standard": "^40.0.0",
         "typescript": "~6.0.2",
         "typescript-eslint": "^8.59.2",
         "vite": "^8.0.12",
@@ -52,6 +57,7 @@
     },
     "lint-staged": {
         "*.{ts,tsx}": "eslint --cache --fix",
+        "*.css": "stylelint --fix",
         "*.{ts,tsx,css,md}": "prettier --write"
     },
     "overrides": {
