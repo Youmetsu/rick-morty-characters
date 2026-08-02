@@ -5,7 +5,7 @@ interface AvatarProps {
     alt?: string
 }
 
-export function Avatar({src, alt}: AvatarProps) {
+export function Avatar({src, alt = ''}: AvatarProps) {
     return (
         <div className='avatar-container'>
             <img
