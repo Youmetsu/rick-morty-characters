@@ -19,8 +19,6 @@ interface CharacterCardEditProps {
 }
 
 export function CharacterCardEdit({character, className, onChange, onSave, onCancel}: CharacterCardEditProps) {
-    const status = STATUS_FILTER_VALUES.find((item) => item === character.status) ?? null
-
     const handleNameChange = (value: string): void => {
         onChange({...character, name: value})
     }
@@ -29,8 +27,10 @@ export function CharacterCardEdit({character, className, onChange, onSave, onCan
         onChange({...character, location: {...character.location, name: value}})
     }
 
-    const handleStatusSelect = (option: Status | null): void => {
-        onChange({...character, status: option ?? ''})
+    const handleStatusSelect = (status: Status | null): void => {
+        if (status) {
+            onChange({...character, status})
+        }
     }
 
     return (
@@ -76,7 +76,7 @@ export function CharacterCardEdit({character, className, onChange, onSave, onCan
                             return <StatusComponent status={option} />
                         }}
                         className='character-card-edit__status'
-                        value={status}
+                        value={character.status}
                         onSelect={handleStatusSelect}
                         size='small'
                     />

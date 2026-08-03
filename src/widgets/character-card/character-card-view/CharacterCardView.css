@@ -1,4 +1,5 @@
 .character-card-view__link {
+    display: block;
     color: inherit;
     text-decoration: none;
 }
