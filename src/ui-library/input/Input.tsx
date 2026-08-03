@@ -10,7 +10,6 @@ interface InputProps {
     variant?: 'underlined' | 'bordered'
     placeholder?: string
     renderDecoration?: () => ReactElement
-    /* только для input */
     className?: string
     classNameContainer?: string
     onChange?: (value: string) => void

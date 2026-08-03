@@ -1,16 +1,10 @@
-.char-card-edit__info-field-block {
-    display: flex;
-    flex-direction: column;
-    margin: 7px 0;
-}
-
-.char-card-edit__status {
+.character-card-edit__status {
     position: relative;
     right: 6px;
 }
 
-.char-card-edit__edit-button,
-.char-card-edit__favorite-button {
+.character-card-edit__cancel-button,
+.character-card-edit__save-button {
     position: absolute;
     right: 8px;
     display: flex;
@@ -27,16 +21,16 @@
     transition: opacity 0.15s ease;
 }
 
-.char-card-edit__edit-button {
+.character-card-edit__cancel-button {
     top: 8px;
 }
 
-.char-card-edit__favorite-button {
+.character-card-edit__save-button {
     top: 8px;
     right: 44px;
 }
 
-.char-card-edit:hover .char-card-edit__edit-button,
-.char-card-edit:hover .char-card-edit__favorite-button {
+.character-card-edit:hover .character-card-edit__cancel-button,
+.character-card-edit:hover .character-card-edit__save-button {
     pointer-events: auto;
 }

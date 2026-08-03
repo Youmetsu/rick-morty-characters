@@ -1,4 +1,4 @@
-.char-card {
+.character-card {
     width: 508px;
     height: 248px;
     box-shadow: 0 0 8px 2px var(--color-shadow);
@@ -7,13 +7,13 @@
     gap: 13px;
 }
 
-.char-card-info {
+.character-card__info {
     margin-top: 7px;
     margin-right: 7px;
     min-width: 0;
 }
 
-.char-card-info-field-block {
+.character-card__info-field-block {
     display: flex;
     flex-direction: column;
     margin: 7px 0;

@@ -5,6 +5,10 @@
     border: 1px solid var(--color-border);
 }
 
+.select-container:hover {
+    box-shadow: 0 0 8px 2px var(--color-shadow);
+}
+
 .select_large {
     width: 240px;
     height: 55px;
@@ -38,10 +42,6 @@
     font-size: 16px;
     line-height: 19px;
     letter-spacing: 0%;
-}
-
-.select-button:hover {
-    box-shadow: 0 0 8px 2px var(--color-shadow);
 }
 
 .select-button:focus-visible {

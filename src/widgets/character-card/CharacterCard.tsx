@@ -1,8 +1,8 @@
 import {useState} from 'react'
 import type {Character} from '../../types/Character.ts'
-import {CharCardEdit} from './char-card-edit/CharCardEdit.tsx'
-import {CharCardView} from './char-card-view/CharCardView.tsx'
-import './CharCard.css'
+import {CharacterCardEdit} from './character-card-edit/CharacterCardEdit.tsx'
+import {CharacterCardView} from './character-card-view/CharacterCardView.tsx'
+import './CharacterCard.css'
 
 interface CharCardProps {
     character: Character
@@ -11,7 +11,7 @@ interface CharCardProps {
     onFavoriteClick?: () => void
 }
 
-export function CharCard({character, className, onSave, onFavoriteClick}: CharCardProps) {
+export function CharacterCard({character, className, onSave, onFavoriteClick}: CharCardProps) {
     const [mode, setMode] = useState<'view' | 'edit'>('view')
     const [draft, setDraft] = useState<Character>(character)
 
@@ -31,14 +31,14 @@ export function CharCard({character, className, onSave, onFavoriteClick}: CharCa
     }
 
     return mode === 'view' ? (
-        <CharCardView
+        <CharacterCardView
             character={character}
             className={className}
             onEditClick={handleEdit}
             onFavoriteClick={onFavoriteClick}
         />
     ) : (
-        <CharCardEdit
+        <CharacterCardEdit
             character={draft}
             className={className}
             onChange={setDraft}

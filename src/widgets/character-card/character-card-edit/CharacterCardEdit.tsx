@@ -1,90 +1,81 @@
-import {useState} from 'react'
 import classNames from 'classnames'
 import CheckMarkIcon from '../../../assets/check-mark.svg?react'
 import CrossIcon from '../../../assets/cross-icon.svg?react'
+import {Avatar} from '../../../components/avatar/Avatar.tsx'
+import {StatusComponent} from '../../../components/status/StatusComponent.tsx'
 import {STATUS_FILTER_VALUES} from '../../../constants/statusFilterValues.ts'
-import {Status} from '../../../enums/status.ts'
+import type {Status} from '../../../enums/status.ts'
 import type {Character} from '../../../types/Character.ts'
-import type {Option} from '../../../types/Option.ts'
 import {Input} from '../../../ui-library/input/Input.tsx'
 import {Select} from '../../../ui-library/select/Select.tsx'
-import {Avatar} from '../../avatar/Avatar.tsx'
-import {StatusComponent} from '../../status/StatusComponent.tsx'
-import './CharCardEdit.css'
+import './CharacterCardEdit.css'
 
-interface CharCardEditProps {
+interface CharacterCardEditProps {
     character: Character
     className?: string
-    onChange?: (character: Character) => void
-    onSave?: () => void
-    onCancel?: () => void
+    onChange: (character: Character) => void
+    onSave: () => void
+    onCancel: () => void
 }
 
-export function CharCardEdit({character, className, onChange, onSave, onCancel}: CharCardEditProps) {
-    const [name, setName] = useState(character.name)
-    const [location, setLocation] = useState(character.location.name)
-    const [status, setStatus] = useState<Option<Status> | null>(
-        STATUS_FILTER_VALUES.find((item) => item.value === character.status) || null
-    )
+export function CharacterCardEdit({character, className, onChange, onSave, onCancel}: CharacterCardEditProps) {
+    const status = STATUS_FILTER_VALUES.find((item) => item === character.status) ?? null
 
     const handleNameChange = (value: string): void => {
-        setName(value)
-        onChange?.({...character, name: value})
+        onChange({...character, name: value})
     }
 
     const handleLocationChange = (value: string): void => {
-        setLocation(value)
-        onChange?.({...character, location: {...character.location, name: value}})
+        onChange({...character, location: {...character.location, name: value}})
     }
 
-    const handleStatusSelect = (option: Option<Status> | null): void => {
-        setStatus(option)
-        onChange?.({...character, status: option?.value ?? ''})
+    const handleStatusSelect = (option: Status | null): void => {
+        onChange({...character, status: option ?? ''})
     }
 
     return (
-        <div className={classNames('char-card char-card-edit', className)}>
+        <div className={classNames('character-card character-card-edit', className)}>
             <Avatar
                 src={character.image}
                 alt={character.name}
             />
 
-            <div className='char-card-info'>
+            <div className='character-card__info'>
                 <Input
                     placeholder='Введите текст'
-                    value={name}
+                    value={character.name}
                     onChange={handleNameChange}
                 />
 
-                <div className='char-card-info-field-block'>
+                <div className='character-card__info-field-block'>
                     <div className='text-bold-medium'>Gender</div>
                     <div className='text-small'>{character.gender}</div>
                 </div>
 
-                <div className='char-card-info-field-block'>
+                <div className='character-card__info-field-block'>
                     <div className='text-bold-medium'>Species</div>
                     <div className='text-small'>{character.species}</div>
                 </div>
 
-                <div className='char-card-info-field-block'>
+                <div className='character-card__info-field-block'>
                     <div className='text-bold-medium'>Location</div>
                     <Input
                         placeholder='Введите текст'
                         className='text-small'
-                        value={location}
+                        value={character.location.name}
                         onChange={handleLocationChange}
                     />
                 </div>
 
-                <div className='char-card-info-field-block'>
+                <div className='character-card__info-field-block'>
                     <div className='text-bold-medium'>Status</div>
                     <Select
                         options={STATUS_FILTER_VALUES}
                         placeholder='Status'
                         renderDecoration={(option) => {
-                            return <StatusComponent status={option.value} />
+                            return <StatusComponent status={option} />
                         }}
-                        className='char-card-edit__status'
+                        className='character-card-edit__status'
                         value={status}
                         onSelect={handleStatusSelect}
                         size='small'
@@ -95,7 +86,7 @@ export function CharCardEdit({character, className, onChange, onSave, onCancel}:
             <button
                 type='button'
                 aria-label='Сохранить'
-                className='char-card-edit__favorite-button'
+                className='character-card-edit__save-button'
                 onClick={onSave}
             >
                 <CheckMarkIcon />
@@ -103,7 +94,7 @@ export function CharCardEdit({character, className, onChange, onSave, onCancel}:
             <button
                 type='button'
                 aria-label='Отменить'
-                className='char-card-edit__edit-button'
+                className='character-card-edit__cancel-button'
                 onClick={onCancel}
             >
                 <CrossIcon />

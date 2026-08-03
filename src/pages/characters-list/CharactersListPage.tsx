@@ -1,77 +1,30 @@
 import {useState} from 'react'
 import RimLogo from '../../assets/rim-logo.svg?react'
 import SearchIcon from '../../assets/search-icon.svg?react'
-import {CharCard} from '../../components/char-card/CharCard.tsx'
 import {StatusComponent} from '../../components/status/StatusComponent.tsx'
 import {SPECIES_FILTER_VALUES} from '../../constants/speciesFilterValues.ts'
 import {STATUS_FILTER_VALUES} from '../../constants/statusFilterValues.ts'
 import {Species} from '../../enums/species.ts'
 import {Status} from '../../enums/status.ts'
+import {testCharacters} from '../../mocks/testCharactersMock.ts'
 import type {Character} from '../../types/Character.ts'
-import type {Option} from '../../types/Option.ts'
 import {Input} from '../../ui-library/input/Input.tsx'
 import {Select} from '../../ui-library/select/Select.tsx'
+import {CharacterCard} from '../../widgets/character-card/CharacterCard.tsx'
 import './CharactersListPage.css'
 
-const testCharacters: Character[] = [
-    {
-        id: 1,
-        name: 'Rick Sanchez',
-        status: 'Alive',
-        species: 'Human',
-        type: '',
-        gender: 'Male',
-        origin: {
-            name: 'Earth',
-            url: 'https://rickandmortyapi.com/api/location/1',
-        },
-        location: {
-            name: 'Earth',
-            url: 'https://rickandmortyapi.com/api/location/20',
-        },
-        image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-        episode: [
-            'https://rickandmortyapi.com/api/episode/1',
-            'https://rickandmortyapi.com/api/episode/2',
-            // ...
-        ],
-        url: 'https://rickandmortyapi.com/api/character/1',
-        created: '2017-11-04T18:48:46.250Z',
-    },
-    {
-        id: 361,
-        name: 'Toxic Rick',
-        status: 'Dead',
-        species: 'Humanoid',
-        type: "Rick's Toxic Side",
-        gender: 'Male',
-        origin: {
-            name: 'Alien Spa',
-            url: 'https://rickandmortyapi.com/api/location/64',
-        },
-        location: {
-            name: 'Earth',
-            url: 'https://rickandmortyapi.com/api/location/20',
-        },
-        image: 'https://rickandmortyapi.com/api/character/avatar/361.jpeg',
-        episode: ['https://rickandmortyapi.com/api/episode/27'],
-        url: 'https://rickandmortyapi.com/api/character/361',
-        created: '2018-01-10T18:20:41.703Z',
-    },
-]
-
 export function CharactersListPage() {
-    const [species, setSpecies] = useState<Option<Species> | null>(null)
-    const [status, setStatus] = useState<Option<Status> | null>(null)
+    const [species, setSpecies] = useState<Species | null>(null)
+    const [status, setStatus] = useState<Status | null>(null)
     const [formString, setFormString] = useState<string>('Rick Sanchez')
     const [searchName, setSearchName] = useState<string>('')
     const [characters, setCharacters] = useState(testCharacters)
 
-    const handleSpeciesSelect = (option: Option<Species> | null): void => {
+    const handleSpeciesSelect = (option: Species | null): void => {
         setSpecies(option)
     }
 
-    const handleStatusSelect = (option: Option<Status> | null): void => {
+    const handleStatusSelect = (option: Status | null): void => {
         setStatus(option)
     }
 
@@ -104,7 +57,7 @@ export function CharactersListPage() {
                     options={STATUS_FILTER_VALUES}
                     placeholder='Status'
                     renderDecoration={(option) => {
-                        return <StatusComponent status={option.value} />
+                        return <StatusComponent status={option} />
                     }}
                     className='filter-element'
                     value={status}
@@ -148,13 +101,13 @@ export function CharactersListPage() {
 
             <div className='character-list-test'>
                 <div className='character-list-test__card-info'>Карточка</div>
-                <CharCard
+                <CharacterCard
                     character={characters[0]}
                     className='character-list-test__card'
                     onSave={handleSaveCard}
                 />
                 <div className='character-list-test__card-info'>Карточка в режиме редактирования</div>
-                <CharCard
+                <CharacterCard
                     character={characters[1]}
                     className='character-list-test__card'
                 />
