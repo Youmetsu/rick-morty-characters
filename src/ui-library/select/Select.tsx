@@ -2,17 +2,16 @@ import {type KeyboardEvent, type ReactElement, type ReactNode, useMemo, useRef, 
 import classNames from 'classnames'
 import {FocusTrap} from 'focus-trap-react'
 import ArrowDown from '../../assets/arrow-full-down.svg?react'
-import type {Option} from '../../types/Option.ts'
 import './Select.css'
 
 interface SelectProps<T extends ReactNode> {
-    options: Option<T>[]
-    value?: Option<T> | null
+    options: T[]
+    value?: T | null
     size?: 'large' | 'small'
     placeholder?: string
-    renderDecoration?: (option: Option<T>) => ReactElement
+    renderDecoration?: (option: T) => ReactElement
     className?: string
-    onSelect?: (option: Option<T> | null) => void
+    onSelect?: (option: T | null) => void
     dataTestIds?: {
         button: string
         options: string
@@ -63,7 +62,7 @@ export function Select<T extends ReactNode>({
         }
     }
 
-    const handleKeyDown = (event: KeyboardEvent, option: Option<T> | null, index: number) => {
+    const handleKeyDown = (event: KeyboardEvent, option: T | null, index: number) => {
         switch (event.key) {
             case 'Enter':
             case ' ': {
@@ -87,7 +86,7 @@ export function Select<T extends ReactNode>({
         }
     }
 
-    const handleSelectValue = (option: Option<T> | null) => {
+    const handleSelectValue = (option: T | null) => {
         onSelect?.(option)
         setIsOpen(false)
     }
@@ -127,9 +126,10 @@ export function Select<T extends ReactNode>({
                         className={classNames('select-button_text', {
                             'select-button_text_large': size === 'large',
                             'select-button_text_small': size === 'small',
+                            'text-small': size === 'small',
                         })}
                     >
-                        {value?.value ?? placeholder}
+                        {value ?? placeholder}
                         {value && renderDecoration?.(value)}
                     </div>
                     <ArrowDown
@@ -153,17 +153,17 @@ export function Select<T extends ReactNode>({
                     >
                         {options.map((option, index) => (
                             <li
-                                key={option.id}
+                                key={String(option)}
                                 ref={(el) => {
                                     optionRefs.current[index] = el
                                 }}
                                 className={classNames('select-option', {
-                                    'select-option__selected': option.id === value?.id,
-                                    'select-option_large': size === 'large',
-                                    'select-option_small': size === 'small',
+                                    'select-option__selected': option === value,
+                                    'text-select-large': size === 'large',
+                                    'text-small': size === 'small',
                                 })}
                                 role='option'
-                                aria-selected={option.id === value?.id}
+                                aria-selected={option === value}
                                 tabIndex={0}
                                 onClick={() => handleSelectValue(option)}
                                 onKeyDown={(event) => handleKeyDown(event, option, index)}
@@ -172,7 +172,7 @@ export function Select<T extends ReactNode>({
                                     event.currentTarget.focus()
                                 }}
                             >
-                                <div>{option.value}</div>
+                                <div>{option}</div>
                                 {renderDecoration && renderDecoration(option)}
                             </li>
                         ))}

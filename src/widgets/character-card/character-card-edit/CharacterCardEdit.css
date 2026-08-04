@@ -1,0 +1,36 @@
+.character-card-edit__status {
+    position: relative;
+    right: 6px;
+}
+
+.character-card-edit__cancel-button,
+.character-card-edit__save-button {
+    position: absolute;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-bg-hover);
+    cursor: pointer;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+}
+
+.character-card-edit__cancel-button {
+    top: 8px;
+}
+
+.character-card-edit__save-button {
+    top: 8px;
+    right: 44px;
+}
+
+.character-card-edit:hover .character-card-edit__cancel-button,
+.character-card-edit:hover .character-card-edit__save-button {
+    pointer-events: auto;
+}

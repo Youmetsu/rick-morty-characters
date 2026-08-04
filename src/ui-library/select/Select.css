@@ -1,7 +1,12 @@
 .select-container {
+    position: relative;
     border-radius: 6px;
-    margin-bottom: 15px;
     cursor: pointer;
+    border: 1px solid var(--color-border);
+}
+
+.select-container:hover {
+    box-shadow: 0 0 8px 2px var(--color-shadow);
 }
 
 .select_large {
@@ -12,8 +17,7 @@
 
 .select_small {
     width: 95px;
-    height: 20px;
-    padding-left: 5px;
+    height: 21px;
 }
 
 .select-button {
@@ -22,10 +26,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid var(--color-border);
+    border: none;
     border-radius: 6px;
-    margin-bottom: 8px;
-
     background: var(--color-bg-primary);
     cursor: pointer;
 }
@@ -42,30 +44,28 @@
     letter-spacing: 0%;
 }
 
-.select-button_text_small {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: 0.25px;
-}
-
-.select-button:hover {
-    box-shadow: 0 0 8px 2px var(--color-shadow);
-}
-
 .select-button:focus-visible {
     outline: 2px solid var(--color-focus);
     outline-offset: 2px;
 }
 
 .select-options {
-    position: relative;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 2;
     border: 1px solid var(--color-border);
     border-radius: 6px;
     margin-top: 8px;
     padding: 0;
-
     background: var(--color-bg-primary);
+}
+
+.select-option {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
 }
 
 .select-options_large .select-option {
@@ -76,26 +76,6 @@
     padding-left: 5px;
 }
 
-.select-option {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-}
-
-.select-option_large {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    letter-spacing: 0%;
-}
-
-.select-option_small {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: 0.25px;
-}
-
 .select-option[aria-selected='true'] {
     border-radius: 6px;
     background-color: var(--color-bg-selected);
@@ -104,7 +84,7 @@
 .select-option:hover,
 .select-option:focus {
     border-radius: 6px;
-    text-shadow: 0.3px 0 0 currentColor;
+    text-shadow: 0.3px 0 0 currentcolor;
     background-color: var(--color-bg-hover);
 }
 

@@ -1,6 +1,5 @@
 :root {
     --color-gray-icon: #98989a;
-
     --color-bg-primary: #ffffff;
     --color-bg-hover: #f5f5f5;
     --color-bg-selected: #e8f4fd;
@@ -8,7 +7,6 @@
     --color-border: #393939;
     --color-focus: #1a73e8;
     --color-shadow: #0000001a;
-
     --color-status-alive: #12b800;
     --color-status-dead: #df0000;
     --color-status-unknown: #ff9900;

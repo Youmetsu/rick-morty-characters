@@ -2,21 +2,16 @@ import {useState} from 'react'
 import {render, screen, within} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import {describe, expect, it, vi} from 'vitest'
-import type {Option} from '../../types/Option.ts'
 import {Select} from './Select'
 
-const options: Option[] = [
-    {id: 1, value: 'value 1'},
-    {id: 2, value: 'value 2'},
-    {id: 3, value: 'value 3'},
-]
+const options = ['value 1', 'value 2', 'value 3']
 
 const placeholder = 'Выбери значение'
 
 const testIds = {button: 'select-button', options: 'select-options'}
 
 function ControlledSelect() {
-    const [value, setValue] = useState<Option | null>(null)
+    const [value, setValue] = useState<string | null>(null)
     return (
         <Select
             options={options}
@@ -127,10 +122,10 @@ describe('Select', () => {
                 options={options}
                 value={options[0]}
                 dataTestIds={testIds}
-                renderDecoration={(option) => <div data-testid={`deco-${option.id}`}>deco</div>}
+                renderDecoration={(option) => <div data-testid={`deco-${option}`}>deco</div>}
             />
         )
-        expect(within(screen.getByTestId(testIds.button)).getByTestId('deco-1')).toBeInTheDocument()
+        expect(within(screen.getByTestId(testIds.button)).getByTestId('deco-value 1')).toBeInTheDocument()
     })
 
     it('Рендерит кастомный элемент для каждой опции в открытом списке', async () => {
@@ -139,13 +134,13 @@ describe('Select', () => {
             <Select
                 options={options}
                 dataTestIds={testIds}
-                renderDecoration={(option) => <div data-testid={`test-elem-${option.id}`}>test-elem</div>}
+                renderDecoration={(option) => <div data-testid={`test-elem-${option}`}>test-elem</div>}
             />
         )
         await user.click(screen.getByTestId(testIds.button))
         const listbox = screen.getByTestId(testIds.options)
         for (const option of options) {
-            expect(within(listbox).getByTestId(`test-elem-${option.id}`)).toBeInTheDocument()
+            expect(within(listbox).getByTestId(`test-elem-${option}`)).toBeInTheDocument()
         }
     })
 

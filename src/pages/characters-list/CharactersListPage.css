@@ -22,3 +22,8 @@
 .text-test-element {
     margin: 20px 0;
 }
+
+.character-list-test__card-info {
+    margin-top: 35px;
+    margin-bottom: 5px;
+}

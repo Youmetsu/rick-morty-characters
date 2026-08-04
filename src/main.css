@@ -1,7 +1,55 @@
-@import './styles/variables.css';
+@import url('./styles/reset.css');
+@import url('./styles/variables.css');
 
 body {
     margin: 0;
     font-family: Roboto, serif;
     line-height: 20px;
+}
+
+.text-bold-large {
+    font-family: Roboto, serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.15px;
+}
+
+.text-bold-medium {
+    font-family: Roboto, serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: 0.25px;
+}
+
+.text-small {
+    font-family: Roboto, serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.25px;
+}
+
+.text-select-large {
+    font-family: Roboto, serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+/* для полей, которые в режиме редактирования будут меняться на input */
+.field-underline {
+    border-bottom: 1px solid transparent;
+}
+
+.field-bordered {
+    border: 1px solid transparent;
+}
+
+.text-wrapper {
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
