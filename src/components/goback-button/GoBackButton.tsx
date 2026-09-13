@@ -1,5 +1,5 @@
 import {useNavigate} from 'react-router'
-import ArrowLeft from '../../assets/arrow-back.svg?react'
+import {ArrowBackIcon} from '@/assets'
 import './GoBackButton.css'
 
 export function GoBackButton() {
@@ -10,7 +10,7 @@ export function GoBackButton() {
             className='goback-button'
             onClick={() => navigate(-1)}
         >
-            <ArrowLeft className='arrow-left' />
+            <ArrowBackIcon className='arrow-left' />
             Go back
         </button>
     )

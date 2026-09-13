@@ -1,7 +1,7 @@
 import {useId, useRef} from 'react'
 import classNames from 'classnames'
 import type {ChangeEvent, ReactElement} from 'react'
-import CrossIcon from '../../assets/cross-icon.svg?react'
+import {CrossIcon} from '@/assets'
 import './Input.css'
 
 interface InputProps {

@@ -36,7 +36,9 @@ export default defineConfig([
                 version: '19.2.6', // версия указана чтобы убрать несовместимость eslint-plugin-react с ESLint 10
             },
             'import-x/resolver': {
-                typescript: true,
+                typescript: {
+                    project: ['./tsconfig.app.json', './tsconfig.node.json'],
+                },
             },
         },
         rules: {
@@ -55,15 +57,21 @@ export default defineConfig([
                             '^react(/.*)?$',
                             '^react-dom(/.*)?$',
                             '^react-router(/.*)?$',
-                            // Packages: letter, digit, underscore, or @scope.
-                            '^@?\\w',
-                            // Side effect imports (non-CSS): import 'reflect-metadata'
+                            // Обычные npm-пакеты и scoped-пакеты (@vitejs/..., @testing-library/...)
+                            '^@[^/]',
+                            '^\\w',
+                            // Side effect imports (non-CSS)
                             '^\\u0000(?!.*\\.s?css$)',
-                            // Parent imports. Put `..` last.
-                            '^\\.\\.(?!/?$)', '^\\.\\./?$',
-                            // Other relative imports. Put same-folder imports and `.` last.
-                            '^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$',
-                            // Style imports last: import './foo.css', import styles from './foo.module.scss'
+                            // Свои алиасы проекта
+                            '^@/',
+                            // Parent imports
+                            '^\\.\\.(?!/?$)',
+                            '^\\.\\./?$',
+                            // Other relative imports
+                            '^\\./(?=.*/)(?!/?$)',
+                            '^\\.(?!/?$)',
+                            '^\\./?$',
+                            // Style imports last
                             '^.+\\.s?css$',
                         ],
                     ],
