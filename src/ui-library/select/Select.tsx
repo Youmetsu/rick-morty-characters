@@ -1,7 +1,7 @@
 import {type KeyboardEvent, type ReactElement, type ReactNode, useMemo, useRef, useState} from 'react'
 import classNames from 'classnames'
 import {FocusTrap} from 'focus-trap-react'
-import ArrowDown from '../../assets/arrow-full-down.svg?react'
+import {ArrowDownFilledIcon} from '@/assets'
 import './Select.css'
 
 interface SelectProps<T extends ReactNode> {
@@ -132,7 +132,7 @@ export function Select<T extends ReactNode>({
                         {value ?? placeholder}
                         {value && renderDecoration?.(value)}
                     </div>
-                    <ArrowDown
+                    <ArrowDownFilledIcon
                         className={classNames({
                             'select-arrow-icon_large': size === 'large',
                             'select-arrow-icon_small': size === 'small',

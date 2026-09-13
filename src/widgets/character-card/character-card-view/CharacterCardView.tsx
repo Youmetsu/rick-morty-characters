@@ -1,11 +1,10 @@
 import classNames from 'classnames'
-import FavoriteIcon from '../../../assets/favorite-outline.svg?react'
-import EditIcon from '../../../assets/pencil.svg?react'
-import {Avatar} from '../../../components/avatar/Avatar.tsx'
-import {StatusComponent} from '../../../components/status/StatusComponent.tsx'
-import {STATUS_FILTER_VALUES} from '../../../constants/statusFilterValues.ts'
-import {Status} from '../../../enums/status.ts'
-import type {Character} from '../../../types/Character.ts'
+import {EditIcon, FavoriteIcon} from '@/assets'
+import {Avatar} from '@/components/avatar/Avatar.tsx'
+import {StatusComponent} from '@/components/status/StatusComponent.tsx'
+import {STATUS_FILTER_VALUES} from '@/constants/statusFilterValues.ts'
+import {Status} from '@/enums/status.ts'
+import type {Character} from '@/types/Character.ts'
 import './CharacterCardView.css'
 
 interface CharCardViewProps {
