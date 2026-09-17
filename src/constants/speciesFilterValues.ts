@@ -1,4 +1,4 @@
-import {Species} from '../enums/species.ts'
+import {Species} from '@/enums'
 
 export const SPECIES_FILTER_VALUES: Species[] = [
     Species.HUMAN,

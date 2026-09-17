@@ -1,0 +1,16 @@
+.filters {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.filters__element {
+    width: 240px;
+    height: 56px;
+    box-sizing: border-box;
+    margin-right: 28px;
+}
+
+.filters__element:last-child {
+    margin-right: 0;
+}
