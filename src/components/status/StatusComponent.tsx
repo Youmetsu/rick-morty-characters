@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import {Status} from '../../enums/status.ts'
+import {Status} from '@/enums'
 import './StatusComponent.css'
 
 interface StatusComponentProps {

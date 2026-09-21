@@ -2,10 +2,10 @@ import classNames from 'classnames'
 import {CheckMarkIcon, CrossIcon} from '@/assets'
 import {Avatar} from '@/components/avatar/Avatar.tsx'
 import {StatusComponent} from '@/components/status/StatusComponent.tsx'
-import {STATUS_FILTER_VALUES} from '@/constants/statusFilterValues.ts'
-import type {Status} from '@/enums/status.ts'
+import {STATUS_FILTER_VALUES} from '@/constants'
+import type {Status} from '@/enums'
 import type {Character} from '@/types/Character.ts'
-import {Input, Select} from '@/ui-library'
+import {Input, Select} from '@/ui-components'
 import './CharacterCardEdit.css'
 
 interface CharacterCardEditProps {
@@ -40,7 +40,7 @@ export function CharacterCardEdit({character, className, onChange, onSave, onCan
 
             <div className='character-card__info'>
                 <Input
-                    placeholder='Введите текст'
+                    placeholder='Enter name...'
                     value={character.name}
                     onChange={handleNameChange}
                 />
@@ -58,7 +58,7 @@ export function CharacterCardEdit({character, className, onChange, onSave, onCan
                 <div className='character-card__info-field-block'>
                     <div className='text-bold-medium'>Location</div>
                     <Input
-                        placeholder='Введите текст'
+                        placeholder='Enter location...'
                         className='text-small'
                         value={character.location.name}
                         onChange={handleLocationChange}
@@ -83,7 +83,7 @@ export function CharacterCardEdit({character, className, onChange, onSave, onCan
 
             <button
                 type='button'
-                aria-label='Сохранить'
+                aria-label='Save'
                 className='character-card-edit__save-button'
                 onClick={onSave}
             >
@@ -91,7 +91,7 @@ export function CharacterCardEdit({character, className, onChange, onSave, onCan
             </button>
             <button
                 type='button'
-                aria-label='Отменить'
+                aria-label='Cancel'
                 className='character-card-edit__cancel-button'
                 onClick={onCancel}
             >

@@ -21,11 +21,6 @@
     border-bottom: 1px solid var(--color-border);
 }
 
-.input__container--underlined:hover,
-.input__container--underlined:focus {
-    box-shadow: 0 0 8px 2px var(--color-shadow);
-}
-
 .input__container--bordered {
     width: 240px;
     height: 56px;

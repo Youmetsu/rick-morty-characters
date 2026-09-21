@@ -1,10 +1,8 @@
-import {GENDER_FILTER_VALUES} from '@/constants/genderFilterValues.ts'
-import {SPECIES_FILTER_VALUES} from '@/constants/speciesFilterValues.ts'
-import {STATUS_FILTER_VALUES} from '@/constants/statusFilterValues.ts'
-import {Input, Select} from '@/ui-library'
-import {useFilterValues} from '@/widgets/filter-panel/useFilterValues.ts'
-import SearchIcon from '../../assets/search-icon.svg?react'
+import {SearchIcon} from '@/assets'
+import {GENDER_FILTER_VALUES, SPECIES_FILTER_VALUES, STATUS_FILTER_VALUES} from '@/constants'
+import {Input, Select} from '@/ui-components'
 import {StatusComponent} from '../../components/status/StatusComponent.tsx'
+import {useFilterValues} from './useFilterValues.ts'
 import './FilterPanel.css'
 
 export function FilterPanel() {
