@@ -2,8 +2,7 @@ import {useState} from 'react'
 import {RimLogo} from '@/assets'
 import {testCharacters} from '@/mocks/testCharactersMock.ts'
 import type {Character} from '@/types/Character.ts'
-import {FilterPanel} from '@/widgets/filter-panel/FilterPanel.tsx'
-import {CharacterCard} from '../../widgets/character-card/CharacterCard.tsx'
+import {CharacterCard, FilterPanel} from '@/widgets'
 import './CharactersListPage.css'
 
 export function CharactersListPage() {

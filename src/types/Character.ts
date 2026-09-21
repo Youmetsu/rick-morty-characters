@@ -1,18 +1,47 @@
-import type {Gender} from '../enums/gender.ts'
-import {Status} from '../enums/status.ts'
+import type {Gender, Status} from '@/enums'
 import type {CharLocation} from './CharLocation.ts'
 
 export interface Character {
-    id: number // The id of the character.
-    name: string // The name of the character.
-    status: Status // The status of the character ('Alive', 'Dead' or 'Unknown').
-    species: string // The species of the character.
-    type: string // The type or subspecies of the character.
-    gender: Gender // The gender of the character ('Female', 'Male', 'Genderless' or 'Unknown').
-    origin: CharLocation // Name and link to the character's origin location.
-    location: CharLocation // Name and link to the character's last known location endpoint.
-    image: string // Link to the character's image. All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
-    episode: string[] // List of episodes in which this character appeared.
-    url: string // Link to the character's own URL endpoint.
-    created: string // Time at which the character was created in the database.
+    id: number
+    name: string
+    /**
+     * Статус персонажа ('Alive', 'Dead' or 'Unknown').
+     */
+    status: Status
+    /**
+     * Видовая принадлежность персонажа.
+     */
+    species: string
+    /**
+     * Тип или подвид персонажа.
+     */
+    type: string
+    /**
+     * Пол персонажа ('Female', 'Male', 'Genderless' or 'Unknown').
+     */
+    gender: Gender
+    /**
+     * Название и ссылка на место рождения персонажа.
+     */
+    origin: CharLocation
+    /**
+     * Название и ссылка на последнее известное местоположение.
+     */
+    location: CharLocation
+    /**
+     * Ссылка на изображение персонажа. Все изображения имеют размер 300x300 пикселей. Большинство из них портреты, так как они предназначены для использования в качестве аватаров.
+     */
+    image: string
+    /**
+     * Список эпизодов в которых появлялся персонаж
+     */
+    episode: string[]
+    /**
+     * Ссылка на собственный URL-адрес персонажа.
+     */
+    url: string
+    /**
+     * Время добавления персонажа в базу данных.
+     */
+    created: string
 }

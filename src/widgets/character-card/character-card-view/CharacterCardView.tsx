@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import {EditIcon, FavoriteIcon} from '@/assets'
 import {Avatar} from '@/components/avatar/Avatar.tsx'
 import {StatusComponent} from '@/components/status/StatusComponent.tsx'
-import {STATUS_FILTER_VALUES} from '@/constants/statusFilterValues.ts'
+import {STATUS_FILTER_VALUES} from '@/constants'
 import {Status} from '@/enums/status.ts'
 import type {Character} from '@/types/Character.ts'
 import './CharacterCardView.css'
@@ -61,7 +61,7 @@ export function CharacterCardView({character, className, onEditClick, onFavorite
 
             <button
                 type='button'
-                aria-label='Редактировать'
+                aria-label='Edit'
                 className='character-card-view__edit-button'
                 onClick={onEditClick}
             >
@@ -69,7 +69,7 @@ export function CharacterCardView({character, className, onEditClick, onFavorite
             </button>
             <button
                 type='button'
-                aria-label='Добавить в избранное'
+                aria-label='Add to favorites'
                 className='character-card-view__favorite-button'
                 onClick={onFavoriteClick}
             >
