@@ -23,7 +23,7 @@
 
 .input__container--underlined:hover,
 .input__container--underlined:focus {
-    border-bottom-color: var(--color-focus);
+    box-shadow: 0 0 8px 2px var(--color-shadow);
 }
 
 .input__container--bordered {
@@ -35,11 +35,11 @@
 
 .input__container--bordered:hover,
 .input__container--bordered:focus {
-    border-color: var(--color-focus);
+    box-shadow: 0 0 8px 2px var(--color-shadow);
 }
 
 .input__decoration {
-    margin-left: 20px;
+    margin-left: 15px;
     margin-right: 3px;
 }
 
