@@ -8,3 +8,10 @@
     flex: 1;
     margin: 26px 198px 0;
 }
+
+/* Перебиваем стили библиотеки через important, иначе надо было бы делать через inline стили */
+.toast {
+    position: absolute !important;
+    bottom: calc(var(--footer-height) + 20px) !important;
+    right: 20px !important;
+}

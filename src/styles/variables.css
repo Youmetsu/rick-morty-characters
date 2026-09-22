@@ -10,4 +10,5 @@
     --color-status-alive: #12b800;
     --color-status-dead: #df0000;
     --color-status-unknown: #ff9900;
+    --footer-height: 60px;
 }

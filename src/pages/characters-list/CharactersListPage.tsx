@@ -1,16 +1,10 @@
-import {useState} from 'react'
 import {RimLogo} from '@/assets'
-import {testCharacters} from '@/mocks/testCharactersMock.ts'
-import type {Character} from '@/types/Character.ts'
+import {useCharacters} from '@/pages/characters-list/useCharacters.ts'
 import {CharacterCard, FilterPanel} from '@/widgets'
 import './CharactersListPage.css'
 
 export function CharactersListPage() {
-    const [characters, setCharacters] = useState(testCharacters)
-
-    const handleSaveCard = (character: Character): void => {
-        setCharacters((prevState) => prevState.map((item) => (item.id === character.id ? character : item)))
-    }
+    const {characters, handleSaveCard} = useCharacters()
 
     return (
         <div className='character-list-page'>
@@ -18,18 +12,16 @@ export function CharactersListPage() {
 
             <FilterPanel />
 
-            <div className='character-list-test'>
-                <div className='character-list-test__card-info'>Карточка</div>
-                <CharacterCard
-                    character={characters[0]}
-                    className='character-list-test__card'
-                    onSave={handleSaveCard}
-                />
-                <div className='character-list-test__card-info'>Карточка в режиме редактирования</div>
-                <CharacterCard
-                    character={characters[1]}
-                    className='character-list-test__card'
-                />
+            <div className='characters'>
+                {characters.map((item) => {
+                    return (
+                        <CharacterCard
+                            key={item.id}
+                            character={item}
+                            onSave={handleSaveCard}
+                        />
+                    )
+                })}
             </div>
         </div>
     )
