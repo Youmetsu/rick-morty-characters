@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import {toast} from 'react-hot-toast'
-import {getCharacters} from '@/api/getCharacters.ts'
-import type {Character} from '@/types/Character.ts'
+import {getCharacters} from '@/api'
+import type {Character} from '@/types'
 
 export function useCharacters() {
     const [characters, setCharacters] = useState<Character[]>([])

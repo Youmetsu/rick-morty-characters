@@ -1,3 +1,1 @@
-import {getCharacters} from './getCharacters'
-
-export {getCharacters}
+export {getCharacters} from './getCharacters'

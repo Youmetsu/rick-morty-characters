@@ -1,6 +1,6 @@
 import axios from 'axios'
-import {apiClient} from '@/api/client.ts'
-import type {Character} from '@/types/Character.ts'
+import type {Character} from '@/types'
+import {apiClient} from './client.ts'
 
 interface GetCharactersResponse {
     info: {

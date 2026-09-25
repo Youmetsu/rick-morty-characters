@@ -1,6 +1,6 @@
 import {RimLogo} from '@/assets'
-import {useCharacters} from '@/pages/characters-list/useCharacters.ts'
 import {CharacterCard, FilterPanel} from '@/widgets'
+import {useCharacters} from './useCharacters.ts'
 import './CharactersListPage.css'
 
 export function CharactersListPage() {

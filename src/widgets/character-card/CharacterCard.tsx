@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import type {Character} from '@/types/Character.ts'
+import type {Character} from '@/types'
 import {CharacterCardEdit} from './character-card-edit/CharacterCardEdit.tsx'
 import {CharacterCardView} from './character-card-view/CharacterCardView.tsx'
 import './CharacterCard.css'
