@@ -1,7 +1,9 @@
 import {useEffect, useState} from 'react'
+import axios from 'axios'
 import {toast} from 'react-hot-toast'
 import {getCharacters} from '@/api'
 import type {Character} from '@/types'
+import {getErrorMessage} from './getErrorMessage.ts'
 
 export function useCharacters() {
     const [characters, setCharacters] = useState<Character[]>([])
@@ -11,16 +13,13 @@ export function useCharacters() {
 
         async function fetchData() {
             try {
-                const data = await getCharacters(abortController.signal)
-                if (data) {
-                    setCharacters(data.results)
-                }
+                const response = await getCharacters(abortController.signal)
+                setCharacters(response.data.results)
             } catch (error) {
-                if (error instanceof Error) {
-                    toast.error(error.message)
-                } else {
-                    console.error('Unknown error', error)
+                if (axios.isCancel(error)) {
+                    return
                 }
+                toast.error(getErrorMessage(error))
             }
         }
 
