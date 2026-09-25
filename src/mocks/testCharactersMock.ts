@@ -1,4 +1,4 @@
-import type {Character} from '../types/Character.ts'
+import type {Character} from '@/types'
 
 export const testCharacters: Character[] = [
     {

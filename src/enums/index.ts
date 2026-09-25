@@ -1,5 +1,3 @@
-import {Gender} from './gender.ts'
-import {Species} from './species.ts'
-import {Status} from './status.ts'
-
-export {Gender, Species, Status}
+export {Gender} from './gender.ts'
+export {Species} from './species.ts'
+export {Status} from './status.ts'

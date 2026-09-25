@@ -1,4 +1,5 @@
 import {Outlet} from 'react-router'
+import {Toaster} from 'react-hot-toast'
 import {Footer} from '../Footer/Footer.tsx'
 import {Header} from '../Header/Header.tsx'
 import './MainLayout.css'
@@ -11,6 +12,10 @@ export function MainLayout() {
                 <Outlet />
             </main>
             <Footer />
+            <Toaster
+                position='bottom-right'
+                containerClassName='toast'
+            />
         </div>
     )
 }

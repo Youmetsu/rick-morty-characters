@@ -1,4 +1,2 @@
-import {CharacterCard} from './character-card/CharacterCard'
-import {FilterPanel} from './filter-panel/FilterPanel'
-
-export {CharacterCard, FilterPanel}
+export {CharacterCard} from './character-card/CharacterCard'
+export {FilterPanel} from './filter-panel/FilterPanel'
