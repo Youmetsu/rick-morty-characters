@@ -2,10 +2,14 @@ import {useEffect, useState} from 'react'
 import axios from 'axios'
 import {toast} from 'react-hot-toast'
 import {getCharacters} from '@/api'
-import type {Character} from '@/types'
+import type {Character, Filters} from '@/types'
 import {getErrorMessage} from './getErrorMessage.ts'
 
-export function useCharacters() {
+interface UseCharactersParams {
+    filters: Filters
+}
+
+export function useCharacters({filters}: UseCharactersParams) {
     const [characters, setCharacters] = useState<Character[]>([])
 
     useEffect(() => {
@@ -13,7 +17,7 @@ export function useCharacters() {
 
         async function fetchData() {
             try {
-                const response = await getCharacters(abortController.signal)
+                const response = await getCharacters(abortController.signal, filters)
                 setCharacters(response.data.results)
             } catch (error) {
                 if (axios.isCancel(error)) {
@@ -28,7 +32,7 @@ export function useCharacters() {
         return () => {
             abortController.abort()
         }
-    }, [])
+    }, [filters])
 
     const handleSaveCard = (character: Character): void => {
         setCharacters((prevState) => prevState.map((item) => (item.id === character.id ? character : item)))
