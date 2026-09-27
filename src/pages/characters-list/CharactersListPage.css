@@ -5,25 +5,10 @@
     height: 100%;
 }
 
-.filters-block {
+.characters {
     display: flex;
-    margin-top: 16px;
-}
-
-.filter-element {
-    margin-right: 28px;
-}
-
-.inputs-test {
-    display: flex;
-    flex-direction: column;
-}
-
-.text-test-element {
-    margin: 20px 0;
-}
-
-.character-list-test__card-info {
-    margin-top: 35px;
-    margin-bottom: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    gap: 28px;
 }

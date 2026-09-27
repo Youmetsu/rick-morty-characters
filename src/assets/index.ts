@@ -1,27 +1,12 @@
-import ArrowBackIcon from './arrow-back.svg?react'
-import ArrowDownFilledIcon from './arrow-down-filled.svg?react'
-import CheckMarkIcon from './check-mark.svg?react'
-import CrossIcon from './cross-icon.svg?react'
-import FavoriteIcon from './favorite-outline.svg?react'
-import LoadingBigIcon from './loading-big.svg?react'
-import LoadingSmallIcon from './loading-small.svg?react'
-import LogoIcon from './logo.svg?react'
-import EditIcon from './pencil.svg?react'
-import RimLogo from './rim-logo.svg?react'
-import SearchIcon from './search-icon.svg?react'
-import SunIcon from './sun.svg?react'
-
-export {
-    ArrowBackIcon,
-    ArrowDownFilledIcon,
-    CheckMarkIcon,
-    CrossIcon,
-    EditIcon,
-    FavoriteIcon,
-    LoadingBigIcon,
-    LoadingSmallIcon,
-    LogoIcon,
-    RimLogo,
-    SearchIcon,
-    SunIcon,
-}
+export {default as ArrowBackIcon} from './arrow-back.svg?react'
+export {default as ArrowDownFilledIcon} from './arrow-down-filled.svg?react'
+export {default as CheckMarkIcon} from './check-mark.svg?react'
+export {default as CrossIcon} from './cross-icon.svg?react'
+export {default as FavoriteIcon} from './favorite-outline.svg?react'
+export {default as LoadingBigIcon} from './loading-big.svg?react'
+export {default as LoadingSmallIcon} from './loading-small.svg?react'
+export {default as LogoIcon} from './logo.svg?react'
+export {default as EditIcon} from './pencil.svg?react'
+export {default as RimLogo} from './rim-logo.svg?react'
+export {default as SearchIcon} from './search-icon.svg?react'
+export {default as SunIcon} from './sun.svg?react'

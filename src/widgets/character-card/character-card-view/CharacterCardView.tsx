@@ -4,7 +4,7 @@ import {Avatar} from '@/components/avatar/Avatar.tsx'
 import {StatusComponent} from '@/components/status/StatusComponent.tsx'
 import {STATUS_FILTER_VALUES} from '@/constants'
 import {Status} from '@/enums/status.ts'
-import type {Character} from '@/types/Character.ts'
+import type {Character} from '@/types'
 import './CharacterCardView.css'
 
 interface CharCardViewProps {
