@@ -27,6 +27,11 @@ export function useCharacters({filters}: UseCharactersParams) {
                 if (axios.isCancel(error)) {
                     return
                 }
+
+                if (axios.isAxiosError(error) && error.response?.status === 404) {
+                    setCharacters([])
+                    return
+                }
                 toast.error(getErrorMessage(error))
             }
         }
