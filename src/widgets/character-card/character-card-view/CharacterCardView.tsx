@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import {EditIcon, FavoriteIcon} from '@/assets'
-import {Avatar} from '@/components/avatar/Avatar.tsx'
-import {StatusComponent} from '@/components/status/StatusComponent.tsx'
+import {Avatar, StatusComponent} from '@/components'
 import {STATUS_FILTER_VALUES} from '@/constants'
 import {Status} from '@/enums/status.ts'
 import type {Character} from '@/types'

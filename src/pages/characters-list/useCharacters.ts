@@ -2,21 +2,34 @@ import {useEffect, useState} from 'react'
 import axios from 'axios'
 import {toast} from 'react-hot-toast'
 import {getCharacters} from '@/api'
-import type {Character} from '@/types'
+import {useDebouncedValue} from '@/hooks'
+import type {Character, Filters} from '@/types'
 import {getErrorMessage} from './getErrorMessage.ts'
 
-export function useCharacters() {
+interface UseCharactersParams {
+    filters: Filters
+}
+
+const DEBOUNCE_DELAY_MS = 300
+
+export function useCharacters({filters}: UseCharactersParams) {
     const [characters, setCharacters] = useState<Character[]>([])
+    const debouncedFilters = useDebouncedValue(filters, DEBOUNCE_DELAY_MS)
 
     useEffect(() => {
         const abortController = new AbortController()
 
         async function fetchData() {
             try {
-                const response = await getCharacters(abortController.signal)
+                const response = await getCharacters(abortController.signal, debouncedFilters)
                 setCharacters(response.data.results)
             } catch (error) {
                 if (axios.isCancel(error)) {
+                    return
+                }
+
+                if (axios.isAxiosError(error) && error.response?.status === 404) {
+                    setCharacters([])
                     return
                 }
                 toast.error(getErrorMessage(error))
@@ -28,7 +41,7 @@ export function useCharacters() {
         return () => {
             abortController.abort()
         }
-    }, [])
+    }, [debouncedFilters])
 
     const handleSaveCard = (character: Character): void => {
         setCharacters((prevState) => prevState.map((item) => (item.id === character.id ? character : item)))

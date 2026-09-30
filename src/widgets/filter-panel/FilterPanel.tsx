@@ -1,40 +1,47 @@
 import {SearchIcon} from '@/assets'
+import {StatusComponent} from '@/components'
 import {GENDER_FILTER_VALUES, SPECIES_FILTER_VALUES, STATUS_FILTER_VALUES} from '@/constants'
+import type {Gender, Species, Status} from '@/enums'
+import type {Filters} from '@/types'
 import {Input, Select} from '@/ui-components'
-import {StatusComponent} from '../../components/status/StatusComponent.tsx'
-import {useFilterValues} from './useFilterValues.ts'
 import './FilterPanel.css'
 
-export function FilterPanel() {
-    const {searchName, setSearchName, species, setSpecies, gender, setGender, status, setStatus} = useFilterValues()
+interface FilterPanelProps {
+    filters: Filters
+    onSetSearchName: (value: string) => void
+    onSetSpecies: (value: Species | null) => void
+    onSetGender: (value: Gender | null) => void
+    onSetStatus: (value: Status | null) => void
+}
 
+export function FilterPanel({filters, onSetSearchName, onSetSpecies, onSetGender, onSetStatus}: FilterPanelProps) {
     return (
         <div className='filters'>
             <Input
                 placeholder='Filter by name...'
                 classNameContainer='filters__element'
                 variant='bordered'
-                value={searchName}
+                value={filters.searchName}
                 renderDecoration={() => {
                     return <SearchIcon style={{paddingTop: 4}} />
                 }}
-                onChange={setSearchName}
+                onChange={onSetSearchName}
             />
 
             <Select
                 options={SPECIES_FILTER_VALUES}
                 placeholder='Species'
                 className='filters__element'
-                value={species}
-                onSelect={setSpecies}
+                value={filters.species}
+                onSelect={onSetSpecies}
             />
 
             <Select
                 options={GENDER_FILTER_VALUES}
                 placeholder='Gender'
                 className='filters__element'
-                value={gender}
-                onSelect={setGender}
+                value={filters.gender}
+                onSelect={onSetGender}
             />
 
             <Select
@@ -44,8 +51,8 @@ export function FilterPanel() {
                     return <StatusComponent status={option} />
                 }}
                 className='filters__element'
-                value={status}
-                onSelect={setStatus}
+                value={filters.status}
+                onSelect={onSetStatus}
             />
         </div>
     )

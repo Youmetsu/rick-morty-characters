@@ -9,6 +9,8 @@ export function getErrorMessage(error: unknown): string {
         switch (error.response.status) {
             case 404:
                 return 'Characters not found.'
+            case 429:
+                return 'Too many requests. Please wait a few seconds.'
             case 500:
                 return 'Server error. Please try again later.'
             default:

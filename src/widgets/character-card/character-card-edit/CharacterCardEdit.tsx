@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import {CheckMarkIcon, CrossIcon} from '@/assets'
-import {Avatar} from '@/components/avatar/Avatar.tsx'
-import {StatusComponent} from '@/components/status/StatusComponent.tsx'
+import {Avatar, StatusComponent} from '@/components'
 import {STATUS_FILTER_VALUES} from '@/constants'
 import type {Status} from '@/enums'
 import type {Character} from '@/types'
