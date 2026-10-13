@@ -1,24 +1,26 @@
-import type {Character, Filters} from '@/types'
+import type {AxiosResponse} from 'axios'
+import type {Character, Filters, Paginated} from '@/types'
 import {apiClient} from './client.ts'
 
-interface GetCharactersResponse {
-    info: {
-        count: number
-        next: string
-        pages: number
-        prev: string
-    }
-    results: Character[]
+interface GetCharactersParams {
+    filters: Filters
+    page: number
+    signal: AbortSignal
 }
 
-export async function getCharacters(abortSignal: AbortSignal, filters: Filters) {
-    return apiClient.get<GetCharactersResponse>('/character', {
-        signal: abortSignal,
+export async function getCharacters({
+    filters,
+    page,
+    signal,
+}: GetCharactersParams): Promise<AxiosResponse<Paginated<Character>>> {
+    return apiClient.get<Paginated<Character>>('/character', {
+        signal,
         params: {
             name: filters.searchName || undefined,
             species: filters.species ?? undefined,
             gender: filters.gender ?? undefined,
             status: filters.status ?? undefined,
+            page,
         },
     })
 }
